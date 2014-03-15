@@ -1,10 +1,11 @@
 import sys
 import os
 li = sys.argv
-S = li[1] 
+S = li[1]
+L = li[2] 
 wo = S.split(" ")
-com ="""echo " """+S+"""" | apertium en-eo """
-trans = os.system(com);
+com ="""echo " """+S+"""" | apertium """+
+trans = os.popen(com).read();
 words = [];
 for i in range(len(wo)):
     if len(wo[i])>0:

@@ -1,9 +1,10 @@
 import sys
 import os
 li = sys.argv
-S = li[1] 
+S = li[1]
+L = li[2] 
 wo = S.split(" ")
-com ="""echo " """+S+"""" | apertium en-eo """
+com ="""echo " """+S+"""" | apertium """+L
 trans = os.popen(com).read();
 words = [];
 for i in range(len(wo)):
@@ -19,7 +20,7 @@ for i in range(len(words)):
         j = j+1
         subseg.append(temp)
 for k in subseg:
-	temp ="""echo " """+k+"""" | apertium en-eo """
+	temp ="""echo " """+k+"""" | apertium """+L
 	tempTrans = os.popen(temp).read();
 	if trans.find(tempTrans[0:len(tempTrans)-1]) !=-1:
 		print "("+str(k)+","+tempTrans[0:len(tempTrans)-1]+")"
