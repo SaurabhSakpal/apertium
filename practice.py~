@@ -4,7 +4,7 @@ li = sys.argv
 S = li[1] 
 wo = S.split(" ")
 com ="""echo " """+S+"""" | apertium en-eo """
-trans = os.popen(com).read();
+trans = os.system(com);
 words = [];
 for i in range(len(wo)):
     if len(wo[i])>0:
